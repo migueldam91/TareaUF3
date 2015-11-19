@@ -18,15 +18,17 @@ public class HibernateHelper {
 		sesion = SessionFactoryUtil.getSessionFactory();
 	}
 
-	public void addDirector(String id, String name, String nacionalidad, String anionacimiento) {
+	public void addDirector(String id, String name, String nacionalidad,
+			String anionacimiento) {
 		Session session = sesion.openSession();
 		Transaction tx = session.beginTransaction();
-		Director director = new Director(id, name, nacionalidad, anionacimiento, new HashSet<Pelicula>(0));
+		Director director = new Director(id, name, nacionalidad,
+				anionacimiento, new HashSet<Pelicula>(0));
 		session.save(director);
 		System.out.println("!Director añadido!");
 		tx.commit();
 		session.close();
-		//System.exit(0);
+		// System.exit(0);
 	}
 
 	public List<Director> getDirectores() {
@@ -45,30 +47,40 @@ public class HibernateHelper {
 		return deps;
 	}
 
-	public void addPelicula(String codigo, String nombredirector, String titulo, String genero, String duracion) {
+	public Director getDirector(String nomDirector) {
+		Session session = sesion.openSession();
+		Director dir = (Director) session
+				.createQuery("from Director where nombre =?")
+				.setString(0, nomDirector).uniqueResult();
+
+		System.out.println("Nombre director de metodo getDirector "+ dir.getNombre());
+		session.close();
+		return dir;
+	}
+
+	public void addPelicula(String codigo, String nombredirector,
+			String titulo, String genero, String duracion) {
 		Session session = sesion.openSession();
 		Transaction tx = session.beginTransaction();
-		directores = getDirectores();
-		Director director = null;
-		Director director1 = null;
+		/*
+		 * directores = getDirectores(); Director director = null; Director
+		 * director1 = null;
+		 * 
+		 * Iterator<Director> it = directores.iterator();
+		 * System.out.println("Lista de Directores"); // Iterador recorre set
+		 * para buscar director por nombre while (it.hasNext()) { director =
+		 * it.next(); if (director.getNombre().equalsIgnoreCase(nombredirector))
+		 * { System.out.println("nombre: " + director.getNombre() + " codigo " +
+		 * director.getCodigo()); director1 = director; } }
+		 */
 
-		Iterator<Director> it = directores.iterator();
-		System.out.println("Lista de Directores");
-		// Iterador recorre set para buscar director por nombre
-		while (it.hasNext()) {
-			director = it.next();
-			if (director.getNombre().equalsIgnoreCase(nombredirector)) {
-				System.out.println("nombre: " + director.getNombre() + " codigo " + director.getCodigo());
-				director1 = director;
-			}
-		}
-
-		Pelicula pelicula = new Pelicula(codigo, director1, titulo, genero, duracion);
+		Pelicula pelicula = new Pelicula(codigo, getDirector(nombredirector), titulo, genero,
+				duracion);
 		session.save(pelicula);
 		System.out.println("!Pelicula añadida!");
 		tx.commit();
 		session.close();
-		//System.exit(0);
+		// System.exit(0);
 	}
 
 	/*
@@ -101,8 +113,10 @@ public class HibernateHelper {
 				while (it.hasNext()) {
 					Pelicula emp = new Pelicula();
 					emp = it.next();
-					System.out.println("codigo: " + emp.getCodigo() + ", titulo: " + emp.getTitulo() + ", genero: "
-							+ emp.getGenero() + ", duracion: " + emp.getDuracion());
+					System.out.println("codigo: " + emp.getCodigo()
+							+ ", titulo: " + emp.getTitulo() + ", genero: "
+							+ emp.getGenero() + ", duracion: "
+							+ emp.getDuracion());
 				}
 			}
 		} else {
@@ -110,13 +124,14 @@ public class HibernateHelper {
 		}
 
 		session.close();
-		//System.exit(0);
+		// System.exit(0);
 	}
 
 	public void deletePelicula(int codigo) {
 		Session session = sesion.openSession();
 		Transaction tx = session.beginTransaction();
-		Pelicula dep = (Pelicula) session.get(Pelicula.class, String.valueOf(codigo));
+		Pelicula dep = (Pelicula) session.get(Pelicula.class,
+				String.valueOf(codigo));
 		if (dep != null) {
 			session.delete(dep);
 			System.out.println("Pelicula borrada");
@@ -127,7 +142,7 @@ public class HibernateHelper {
 
 		session.close();
 	}
-	
+
 	public void deletePelicula(String titulo) {
 		Session session = sesion.openSession();
 		Transaction tx = session.beginTransaction();
@@ -146,7 +161,8 @@ public class HibernateHelper {
 	public void updateNombreDirector(int codigo, String nombreNuevo) {
 		Session session = sesion.openSession();
 		Transaction tx = session.beginTransaction();
-		Director dep = (Director) session.get(Director.class, String.valueOf(codigo));
+		Director dep = (Director) session.get(Director.class,
+				String.valueOf(codigo));
 
 		if (dep == null) {
 			System.out.println("No existe tal director");
@@ -158,7 +174,7 @@ public class HibernateHelper {
 
 		tx.commit();
 		session.close();
-		//System.exit(0);
+		// System.exit(0);
 	}
 
 	/*
@@ -179,13 +195,14 @@ public class HibernateHelper {
 		Iterator iter = q.iterate();
 		while (iter.hasNext()) {
 			dep = (Director) iter.next();
-			System.out.println(dep.getCodigo() + " " + dep.getNombre() + " " + dep.getAnionacimiento() + " "
-					+ dep.getNacionalidad() + dep.getPeliculas());
+			System.out.println(dep.getCodigo() + " " + dep.getNombre() + " "
+					+ dep.getAnionacimiento() + " " + dep.getNacionalidad()
+					+ dep.getPeliculas());
 		}
 		session.close();
 	}
-	
-	public void cerrarHibernate(){
+
+	public void cerrarHibernate() {
 		Session session = sesion.openSession();
 		Transaction tx = session.beginTransaction();
 		session.close();
