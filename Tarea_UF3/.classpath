@@ -3,6 +3,24 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateLib"/>
-	<classpathentry kind="lib" path="C:/Users/21443251/GIT/TareaUF3/Tarea_UF3/h2-1.3.176.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/git/TareaUF3/Tarea_UF3/h2-1.3.176.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/geronimo-jta_1.1_spec-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/hibernate-commons-annotations-5.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/hibernate-core-5.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/hibernate-entitymanager-5.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/hibernate-search-engine-5.5.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/hibernate-search-orm-5.5.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/javassist-3.18.1-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/jboss-annotations-api_1.2_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/jboss-jms-api_2.0_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/jboss-logging-3.3.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/lucene-core-5.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/slf4j-api-1.7.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/slf4j-simple-1.7.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Miguel/Utils/HibernateLib/HibernateLib/xml-apis-1.3.03.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

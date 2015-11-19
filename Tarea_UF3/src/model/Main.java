@@ -11,7 +11,7 @@ public class Main {
 		int opc = -1, opc2;
 		String parametro, parametro1, parametro2, parametro3, parametro4, parametro5;
 
-		while (funcionar == true) {
+		while (funcionar) {
 
 			System.out.println("Introduzca la opción elegida: ");
 			System.out.println("1- Mostrar todos los directores.");
@@ -26,7 +26,7 @@ public class Main {
 			in.nextLine();
 			switch (opc) {
 			case 1:
-				hibernate.showDeps();
+				hibernate.showDirectores();
 				break;
 			case 2:
 				System.out.println("Introduzca el código del director: ");
