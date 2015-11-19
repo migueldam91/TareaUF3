@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-nov-2015 13:09:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.Pelicula" table="PELICULA" schema="PUBLIC" catalog="BBDD">
+        <id name="codigo" type="string">
+            <column name="CODIGO" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="director" class="model.Director" fetch="select">
+            <column name="CODIGODIRECTOR" length="20" />
+        </many-to-one>
+        <property name="titulo" type="string">
+            <column name="TITULO" length="50" />
+        </property>
+        <property name="genero" type="string">
+            <column name="GENERO" length="50" />
+        </property>
+        <property name="duracion" type="string">
+            <column name="DURACION" length="12" />
+        </property>
+    </class>
+</hibernate-mapping>
